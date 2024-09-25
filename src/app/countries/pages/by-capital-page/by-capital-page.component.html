@@ -1,12 +1,14 @@
-<h2>Pore capital</h2>
+<h2>Por Capital</h2>
 <hr>
 
 <div class="row">
   <div class="col">
     <!-- SearchBox -->
+    <!--(onValue)="searchByCapital($event)"-->
      <share-search-box
-     (onValue)="searchByCapital($event)"
-     placeholder="Buscar por Capital"></share-search-box>
+     (onDebounce)="searchByCapital($event)"
+     [initialValue] ="initialValue"
+     placeholder="Buscar por Pais"></share-search-box>
 
   </div>
 </div>
@@ -14,11 +16,7 @@
 <div class="row">
   <div class="col">
     <hr>
-    <ul>
-      <li *ngFor="let country of Countries">
-        {{ country.capital }} - {{ country.population }}
-
-      </li>
-    </ul>
+    <shared-loading-spinner *ngIf="isLoading"></shared-loading-spinner>
+    <countries-table [countries]="Countries"></countries-table>
   </div>
 </div>

@@ -1,1 +1,21 @@
-<p>by-country-page works!</p>
+<h2>Por Pais</h2>
+<hr>
+
+<div class="row">
+  <div class="col">
+    <!-- SearchBox -->
+     <share-search-box
+     (onDebounce)="searchByCountry($event)"
+     [initialValue]="initialValue"
+     placeholder="Buscar por Pais"></share-search-box>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <hr>
+    <countries-table [countries]="Countries"></countries-table>
+  </div>
+</div>
+
